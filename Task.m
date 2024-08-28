@@ -52,10 +52,9 @@ Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
 
 
 %/////////////////////////TEXT/////////////////////////////////
-%/////////////////// Folder ro Avaz kon Jayi ke bayad axa bashe//////
+
 cd(['/media/brainlab/cad8a484-4676-4c48-9ef4-5b94b3f7d11f/ubuntu/Losers/slide']);
 
-%/////////////////Aval Matn o namayesh mid eke Bekhoone/////////
 TImage=imread('Slide1.JPG');
 TTexture= Screen('MakeTexture', window, TImage);
 Screen('DrawTexture', window, TTexture, [], [], 0);
@@ -68,9 +67,10 @@ Start Trial:end
 
 
 Screen('Flip', window);
-Tcounter=0; %0 shodane time baraye khoondane matn
+Tcounter=0; 
 tic;
-%//////////////Montazer Mimoone Ke Subject Space ro bezane ke yani matno khoonde va matn bere/////////////////
+
+% If subjusts press the "space" key, it means that they have read the text, and they want to see the questions.
 
 exit_KeyIdx = KbName('space');
 RestrictKeysForKbCheck(exit_KeyIdx);
@@ -80,7 +80,6 @@ Eyelink('Message','TRIAL_RESULT');
 Eyelink('Message','trial OK');
 End Trial:end
 
-% ya karbar zoodtar matn ra tamam mikonad ya timesh tamam mishavad (299s)
 keyIsDown=0;
 
 while(keyIsDown==0&&toc<=30)
@@ -93,7 +92,7 @@ end
 RestrictKeysForKbCheck([]);
 l=keyIsDown;
  
-%//////////// ////////////Namayeshe 5 ta soal///////////////
+% Question Part
 
 for i=2:6
     Start Trial:start
